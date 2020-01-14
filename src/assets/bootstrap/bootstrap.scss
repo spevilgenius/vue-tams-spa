@@ -1,0 +1,514 @@
+/* import what we need to override */
+@import 'scss/functions';
+@import 'scss/variables';
+@import 'scss/mixins';
+
+/* set the overriding variables */
+$grid-breakpoints: (
+  xxxs: 0,
+  xxs: 320px,
+  xs: 568px,
+  sm: 667px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+  xxxl: 1600px,
+  xxxxl: 1920px,
+  xxxxxl: 3840px
+);
+$container-max-widths: (
+  xxxs: 0,
+  xxs: 320px,
+  xs: 568px,
+  sm: 667px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+  xxxl: 1600px,
+  xxxxl: 1920px,
+  xxxxxl: 3840px
+);
+
+$enable-rounded: false;
+
+$blue:    #007bff; /* #007bff; #00e1ff;*/
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #28a745;
+$teal:    #20c997;
+$cyan:    #17a2b8;
+
+// holiday theme colors
+$hoho-red:    #ff1111;
+$hoho-green:  #18f118;
+
+$thickness: 20px;
+$stripeWidth: 24px;
+
+$colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(
+  (
+    "blue":       $blue,
+    "indigo":     $indigo,
+    "purple":     $purple,
+    "pink":       $pink,
+    "red":        $red,
+    "orange":     $orange,
+    "yellow":     $yellow,
+    "green":      $green,
+    "teal":       $teal,
+    "cyan":       $cyan,
+    "white":      $white,
+    "gray":       $gray-600,
+    "gray-dark":  $gray-800,
+    "black":      $black,
+    "hoho-red":   $hoho-red,
+    "hoho-green": $hoho-green
+  ),
+  $colors
+);
+
+$primary:       $blue;
+$secondary:     $white;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-800;
+
+$theme-colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
+  ),
+  $theme-colors
+);
+
+/* override the default vars with the values we set above */
+@import 'scss/bootstrap.scss';
+
+/* CUSTOM CSS */
+.hidden {
+  display: none;
+}
+
+body {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: normal;
+  color: #000000;
+  text-align: left;
+  background-color: #fff;
+}
+
+#maincontainer {
+  padding: 0;
+}
+
+.candycane, .holiday {
+  background: repeating-linear-gradient(45deg, $hoho-red, $hoho-red $stripeWidth, $white $stripeWidth, $white $stripeWidth * 2) !important;
+  opacity: 1 !important;
+}
+.navbar {
+  padding: 0.5rem 0;
+}
+.navbar-header {
+  width: 200px;
+}
+.navbar-brand-svg {
+  fill: #f4a94c; /* #5aa0f0; */
+}
+.navbar .navbar-brand {
+  color: $black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 13px 20px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 20px;
+  height: 48px;
+  width: 200px;
+  margin: 0 !important;
+  /* background: repeating-linear-gradient(45deg, $hoho-red, $hoho-red $stripeWidth, $white $stripeWidth, $white $stripeWidth * 2) */
+  background-color: $primary;
+  /* background-color: #f4a94c; */
+}
+.navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+  color: #000;
+}
+.bg-dark {
+  background-color: #000000 !important;
+}
+
+.dropdown-left {
+  min-width: 150px;
+}
+.menu-hover:hover > .menutext {
+  color: $black;
+  /* background-color: $white; */
+}
+.menu-hover:hover {
+  /* background-color: #f4a94c; */
+  background-color: $primary;
+  /* background: repeating-linear-gradient(45deg, $hoho-red, $hoho-red $stripeWidth, $white $stripeWidth, $white $stripeWidth * 2) */
+}
+
+.navbar {
+  height: 48px;
+  font-size: 18px;
+  line-height: 18px;
+}
+.navbar-nav {
+  height: 48px;
+}
+.nav-link {
+  display: block;
+  height: 48px;
+  padding: 15px;
+  color: #ffffff;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 1);
+}
+.navbar-nav li:hover > ul.dropdown-menu {
+  display: block;
+}
+a:hover > ul.dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 48px;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 10rem;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #ffffff !important;
+  text-align: left;
+  list-style: none;
+  background-color: $black !important;
+  background-clip: padding-box;
+  border: 1px solid $black;
+  /* background: repeating-linear-gradient(45deg, $hoho-red, $hoho-red $stripeWidth, $white $stripeWidth, $white $stripeWidth * 2); */
+}
+
+li:hover > .dropdown-item {
+  /* background-color: #f4a94c; */
+  background-color: $primary;
+  color: $black;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: inherit;
+  white-space: nowrap;
+  /* background-color: #000000; */
+  border: 0;
+}
+
+#ulSettings .dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 0.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: #000000;
+  border: 0;
+}
+
+.settingsli {
+  display: inline-flex;
+  width: 200px;
+}
+
+#ulSettings li:hover {
+  /* background-color: #f4a94c; */
+  background-color: $primary;
+}
+
+#ulSettings li:hover > .icon {
+  /* background-color: #f4a94c; */
+  background-color: $primary;
+  color: #000000;
+}
+
+#ulSettings li:hover > .dropdown-item {
+  /* background-color: #f4a94c; */
+  background-color: $primary;
+  color: #000000;
+}
+
+#ulSettings .icon {
+  color: white;
+  font-size: 18px;
+  width: 20px;
+  margin: 4px;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: 0;
+}
+.dropdown-toggle::after {
+  transform: rotate(-90deg);
+}
+
+.dropdown-tasks {
+  width: 250px;
+}
+
+#suiteBar {
+  display: none;
+}
+
+/* BEGIN SEARCH */
+.app-search {
+  position: relative;
+  margin: 0px;
+}
+.app-search a {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: #ffffff;
+}
+.app-search .form-control {
+  border: none;
+  font-size: 13px;
+  color: #ffffff;
+  padding-left: 20px;
+  padding-right: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  height: 50px;
+  font-weight: 600;
+  width: 180px;
+  display: inline-block;
+  line-height: 50px;
+  transition: 0.5s ease-out;
+}
+.app-search .form-control:focus {
+  border: none;
+  font-size: 13px;
+  color: #ffffff;
+  padding-left: 20px;
+  padding-right: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: none;
+  height: 50px;
+  font-weight: 600;
+  width: 250px;
+  display: inline-block;
+  line-height: 50px;
+  transition: 0.5s ease-out;
+}
+.app-search .form-control::-moz-placeholder {
+  color: #fafafa;
+  opacity: 0.5;
+}
+.app-search .form-control::-webkit-input-placeholder {
+  color: #fafafa;
+  opacity: 0.5;
+}
+.app-search .form-control::-ms-placeholder {
+  color: #fafafa;
+  opacity: 0.5;
+}
+/* END SEARCH */
+.icon {
+  color: white;
+  font-size: 18px;
+}
+.badge {
+  display: inline-block;
+  min-width: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: 6px;
+  margin-top: -7px;
+}
+
+/* TRAVEL CALENDAR */
+
+.travel-new {
+  background-color: $warning !important;
+  color: $white !important;
+}
+.travel-approved {
+  background-color: $info !important;
+  color: $white !important;
+}
+.travel-report {
+  background-color: $success !important;
+  color: $white !important;
+}
+.travel-no-report {
+  background-color: $danger !important;
+  color: $white !important;
+}
+
+/* END TRAVEL CALENDAR */
+
+// static width styles
+.px10 {
+  width: 10px;
+}
+.px20 {
+  width: 20px;
+}
+.px30 {
+  width: 30px;
+}
+.px40 {
+  width: 40px;
+}
+.px50 {
+  width: 50px;
+}
+.px60 {
+  width: 60px;
+}
+.px70 {
+  width: 70px;
+}
+.px80 {
+  width: 80px;
+}
+.px90 {
+  width: 90px;
+}
+.px100 {
+  width: 100px;
+}
+.px110 {
+  width: 110px;
+}
+.px120 {
+  width: 120px;
+}
+.px130 {
+  width: 130px;
+}
+.px140 {
+  width: 140px;
+}
+.px150 {
+  width: 150px;
+}
+.px160 {
+  width: 160px;
+}
+.px170 {
+  width: 170px;
+}
+.px180 {
+  width: 180px;
+}
+.px190 {
+  width: 190px;
+}
+.px200 {
+  width: 200px;
+}
+.px210 {
+  width: 210px;
+}
+.px220 {
+  width: 220px;
+}
+.px230 {
+  width: 230px;
+}
+.px240 {
+  width: 240px;
+}
+.px250 {
+  width: 250px;
+}
+.px260 {
+  width: 260px;
+}
+.px270 {
+  width: 270px;
+}
+.px280 {
+  width: 280px;
+}
+.px290 {
+  width: 290px;
+}
+.px300 {
+  width: 300px;
+}
+
+.pw10 {
+  width: 10%;
+}
+.pw20 {
+  width: 20%;
+}
+.pw30 {
+  width: 30%;
+}
+.pw40 {
+  width: 40%;
+}
+.pw50 {
+  width: 50%;
+}
+.pw60 {
+  width: 60%;
+}
+.pw70 {
+  width: 70%;
+}
+.pw80 {
+  width: 80%;
+}
+.pw90 {
+  width: 90%;
+}
+.pw100 {
+  width: 100%;
+}
+.mb5px {
+  margin-bottom: 5px;
+}
